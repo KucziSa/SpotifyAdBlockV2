@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Spotify Ad Remover",
+   "description": "Removes audio ads on Spotify™ Web Player. It also disables 'premium' button.",
+  "version": "1.5",
+  "host_permissions": [
+    "*://open.spotify.com/*"
+  ],
+  "optional_host_permissions": [
+    "*://*/*"
+  ],
+   "icons": 
+   {
+      "128": "icon.png"
+   },
+   "action": {
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+   },
+   "background":
+   {
+    "service_worker": "contentScript.js",
+    "type": "module"
+   },
+   "content_scripts": 
+   [
+    {
+      "matches": ["https://open.spotify.com/*"],
+      "css": ["buttonsRemoval.css"]
+    }
+   ]
+}
